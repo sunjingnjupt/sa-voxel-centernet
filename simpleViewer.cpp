@@ -156,6 +156,7 @@ void Viewer::draw() {
     glEnd();
     glPopMatrix();
     //  draw Segment center
+    glPointSize(1.2f);
     glColor3f(0.0f, 1.0f, 0.0f);
     int count = 0;
     for (int row = 0; row < rows_; ++row){
@@ -165,7 +166,7 @@ void Viewer::draw() {
                 glPushMatrix();
                 utils::point2d seg_center = view_.GetCenter(row, col);
                 glTranslatef(seg_center.x, seg_center.y, 0.0f);
-                drawCircle(0.14, 12);
+                drawCircle(0.08, 12);
                 glPopMatrix();
                 ++count;
             }
@@ -236,6 +237,14 @@ void Viewer::find_all_node2()
 //                   nodes_[row][col].row, nodes_[row][col].col,
 //                   nodes_[center_row][center_col].row,
 //                   nodes_[center_row][center_col].col);
+        }
+    }
+    for (int row = 0; row < view_.rows(); ++row) {
+        for (int col = 0; col < view_.cols(); ++col) {
+            if (!grid_skips[row][col]) {
+                auto root_node = nodes_[row][col].parent;
+                ++gridVotes_[root_node->row][root_node->col];
+            }
         }
     }
 }

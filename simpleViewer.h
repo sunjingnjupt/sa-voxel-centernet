@@ -13,7 +13,7 @@ public:
     int visted = 0;
     // true has find center node, false not find center node
     bool is_root_center = false;
-    int rank = 0;  // center has hight rank, first rank is zeros
+    int level = 0;  // center has hight level, first level is zeros
     int row = 0;
     int col = 0;
     int seg_id = -1;

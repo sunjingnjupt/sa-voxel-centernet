@@ -59,13 +59,13 @@ void JointUnionNode(T* node1, T* node2)
     if (node1 == node2) {
         return;
     }
-    if (node1->rank < node2->rank) {
+    if (node1->level < node2->level) {
         node1->parent = node2;
-    } else if(node2->rank < node1->rank) {
+    } else if(node2->level < node1->level) {
         node2->parent = node1;
     } else {
         node1->parent = node2;
-        node2->rank++;
+        node2->level++;
     }
 }
 };
