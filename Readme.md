@@ -5,5 +5,5 @@
 
 * src file can get offset as this
 <p align="center">
-  <img src="img/example2.png" width="95%" height="320" width ="320">
+  <img src="img/example2.png" height="320" width ="320">
 </p>
