@@ -247,26 +247,7 @@ void Viewer::find_all_node()
 
 void Viewer::find_all_node_parent_record(Node* x, std::vector<Node*>& path)
 {
-    // record x has path parent node*
-    int path_len = 0;
-    while(x->visted == 0) { // when x is not visted stop it
-        path[path_len++] = x;  // use path_len and plus one
-        x->visted = -1;     // x has been visted
-        x = x->parent;         // x going to it parent
-    }
-    if (x->visted == -1) { // has visted
-        assert(path_len >= 1);
-        int i = path_len - 1; // path_len++ has plus one more times
-        while((i >= 0) && (path[i] != x)) { // path can be a loop, so  path != x is stop condition
-            path[i--]->is_root_center = true; // all path node has find center
-        }
-        x->parent = x;                      // let the end root x's parent to be itself
-        x->is_root_center = true;
-    }
-    for (int i = 0; i < path_len; ++i) {   // loop condition, loop 1->2->3->4->5->2 , set 1->2 node
-        path[i]->parent = x->parent;
-        path[i]->visted = 1;
-    }
+
 }
 
 void Viewer::PrintOffsets()
